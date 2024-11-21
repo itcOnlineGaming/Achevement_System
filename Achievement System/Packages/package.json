@@ -1,0 +1,7 @@
+{
+    "name": "ie.itcarlow.mod3filter",
+    "version": "0.1.0",
+    "displayName": "Achievement System",
+    "description": "A filter that mods a lists contents", 
+     "unity":"2022.3" 
+  }

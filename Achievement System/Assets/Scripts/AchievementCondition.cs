@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AchievementCondition : MonoBehaviour
 {
-    delegate bool condition();
+
+
+   public bool getTrue()
+    {
+        return true;
+    }
 
 }

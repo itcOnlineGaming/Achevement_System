@@ -985,6 +985,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AchievementSystem.csproj">
+      <Project>{1B7863B0-E717-8A30-BED3-F2ECCD0703AF}</Project>
+      <Name>AchievementSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

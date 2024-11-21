@@ -13,10 +13,18 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638675390201112023
-    m_Hash: 968419440
+      ticks: 638678068583429009
+    m_Hash: 413129414
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    C:/Users/gameuser/Desktop/Achievement_System/Achievement System/Packages/ie.itcarlow.achievementsystem/package.json:
+      m_FilePath: C:/Users/gameuser/Desktop/Achievement_System/Achievement System/Packages/ie.itcarlow.achievementsystem/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 638678068544704146
+      m_Hash: 2923456706
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/Users/gameuser/Desktop/Achievement_System/Achievement System/Packages
@@ -2666,6 +2674,60 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
+- packageId: ie.itcarlow.achievementsystem@file:C:\Users\gameuser\Desktop\Achievement_System\Achievement
+    System\Packages\ie.itcarlow.achievementsystem
+  testable: 1
+  isDirectDependency: 1
+  version: 0.1.0
+  source: 3
+  resolvedPath: C:\Users\gameuser\Desktop\Achievement_System\Achievement System\Packages\ie.itcarlow.achievementsystem
+  assetPath: Packages/ie.itcarlow.achievementsystem
+  name: ie.itcarlow.achievementsystem
+  displayName: Achievement System
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Achievement system
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0

@@ -57,39 +57,39 @@ public class AchievementSystem : MonoBehaviour
 
     private void createAchievementPopUp(string title)
     {
-        Canvas canvas = FindAnyObjectByType<Canvas>();
+        //Canvas canvas = FindAnyObjectByType<Canvas>();
 
-        if( canvas == null ) 
-        {
-            GameObject canvasObject = new GameObject("Canvas");
-            canvas = canvasObject.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        //if( canvas == null ) 
+        //{
+        //    GameObject canvasObject = new GameObject("Canvas");
+        //    canvas = canvasObject.AddComponent<Canvas>();
+        //    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
        
-        }
+        //}
 
-        GameObject achievementPopUp = new GameObject("AchievementPopUp");
+        //GameObject achievementPopUp = new GameObject("AchievementPopUp");
         
-        achievementPopUp.transform.parent = canvas.transform;  
+        //achievementPopUp.transform.parent = canvas.transform;  
 
-        RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
-        achievementRect.anchoredPosition = new Vector2(0, 0);
-        achievementRect.sizeDelta = new Vector2(200, 200);
+        //RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
+        //achievementRect.anchoredPosition = new Vector2(0, 0);
+        //achievementRect.sizeDelta = new Vector2(200, 200);
 
-        Image popUpImage = achievementPopUp.AddComponent<Image>();  
-        popUpImage.color = Color.white;
+        //Image popUpImage = achievementPopUp.AddComponent<Image>();  
+        //popUpImage.color = Color.white;
 
         
-        GameObject textObject = new GameObject("Achievement Title");
+        //GameObject textObject = new GameObject("Achievement Title");
 
-        textObject.transform.parent = achievementPopUp.transform;
-        Text achievmentTitle = textObject.AddComponent<Text>();
+        //textObject.transform.parent = achievementPopUp.transform;
+        //Text achievmentTitle = textObject.AddComponent<Text>();
 
-        achievmentTitle.transform.position = achievementPopUp.transform.position; 
-        achievmentTitle.text = title;
-        achievmentTitle.color = Color.black;
-        achievmentTitle.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        achievmentTitle.fontSize = 20;
+        //achievmentTitle.transform.position = achievementPopUp.transform.position; 
+        //achievmentTitle.text = title;
+        //achievmentTitle.color = Color.black;
+        //achievmentTitle.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        //achievmentTitle.fontSize = 20;
 
-        Instantiate(achievementPopUp);
+        //Instantiate(achievementPopUp);
     }
 }

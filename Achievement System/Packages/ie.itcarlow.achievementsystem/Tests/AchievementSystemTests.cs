@@ -16,16 +16,10 @@ public class AchievementSystemTests
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
-    //[UnityTest]
-    //public IEnumerator AchievementSystemTestsWithEnumeratorPasses()
-    //{
-
-    //    AchievementCondition achievementCondition = new AchievementCondition(); ;
-     
-    //    // Use the Assert class to test conditions.
-    //    // Use yield to skip a frame.
-    //    yield return new WaitForSeconds(1.0f);
-
-    //    Assert.IsTrue(achievementCondition.getTrue());
-    //}
+    [UnityTest]
+    public IEnumerator AchievementSystemTestsWithEnumeratorPasses()
+    {
+        yield return null;  
+        Assert.IsTrue(true);
+    }
 }

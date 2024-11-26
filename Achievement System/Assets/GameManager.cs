@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AchievementSystem.instance.addAchievement(PressedButtton, "You Can Press V !");
+        AchievementTracker.instance.addAchievement(PressedButtton, "You Can Press V !");
     }
 
     // Update is called once per frame

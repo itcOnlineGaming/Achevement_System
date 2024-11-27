@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1B7863B0-E717-8A30-BED3-F2ECCD0703AF}|AchievementSystem.csproj|c:\\users\\gameuser\\desktop\\achievement_system\\achievement system\\packages\\ie.itcarlow.achievementsystem\\runtime\\achievementtracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1B7863B0-E717-8A30-BED3-F2ECCD0703AF}|AchievementSystem.csproj|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\packages\\ie.itcarlow.achievementsystem\\runtime\\achievementtracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1B7863B0-E717-8A30-BED3-F2ECCD0703AF}|AchievementSystem.csproj|solutionrelative:packages\\ie.itcarlow.achievementsystem\\runtime\\achievementtracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDAB1F23-0745-4501-206B-0F9F772D61ED}|AchievementTests.csproj|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\packages\\ie.itcarlow.achievementsystem\\tests\\achievementsystemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDAB1F23-0745-4501-206B-0F9F772D61ED}|AchievementTests.csproj|solutionrelative:packages\\ie.itcarlow.achievementsystem\\tests\\achievementsystemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05301065-466C-DB38-484D-49C54FDE575A}|Assembly-CSharp.csproj|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\assets\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05301065-466C-DB38-484D-49C54FDE575A}|Assembly-CSharp.csproj|c:\\users\\gameuser\\desktop\\achievement_system\\achievement system\\assets\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05301065-466C-DB38-484D-49C54FDE575A}|Assembly-CSharp.csproj|solutionrelative:assets\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementCondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementCondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05301065-466C-DB38-484D-49C54FDE575A}|Assembly-CSharp.csproj|c:\\users\\gameuser\\desktop\\achievement_system\\achievement system\\assets\\achievements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05301065-466C-DB38-484D-49C54FDE575A}|Assembly-CSharp.csproj|solutionrelative:assets\\achievements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\Scripts\\AchievementCondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\AchievementCondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\AchievemntTests\\AchievementSystemTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Packages\\ie.itcarlow.achievementsystem\\AchievemntTests\\AchievementSystemTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDAB1F23-0745-4501-206B-0F9F772D61ED}|AchievementTests.csproj|C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.asmdef||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{DDAB1F23-0745-4501-206B-0F9F772D61ED}|AchievementTests.csproj|solutionrelative:Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.asmdef||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{DDAB1F23-0745-4501-206B-0F9F772D61ED}|AchievementTests.csproj|c:\\users\\gameuser\\desktop\\achievement_system\\achievement system\\packages\\ie.itcarlow.achievementsystem\\tests\\achievementsystemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDAB1F23-0745-4501-206B-0F9F772D61ED}|AchievementTests.csproj|solutionrelative:packages\\ie.itcarlow.achievementsystem\\tests\\achievementsystemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +26,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AchievementSystemTests.cs",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
+              "RelativeDocumentMoniker": "Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
+              "RelativeToolTip": "Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T20:00:31.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Achievements.cs",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\Achievements.cs",
+              "RelativeDocumentMoniker": "Assets\\Achievements.cs",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\Achievements.cs",
+              "RelativeToolTip": "Assets\\Achievements.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T19:56:16.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\GameManager.cs",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\GameManager.cs",
+              "RelativeToolTip": "Assets\\GameManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T19:24:22.45Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,82 +75,10 @@
               "RelativeDocumentMoniker": "Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementTracker.cs",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementTracker.cs",
               "RelativeToolTip": "Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementTracker.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAfAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:13:06.702Z",
+              "WhenOpened": "2024-11-27T18:56:06.833Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\GameManager.cs",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\GameManager.cs",
-              "RelativeToolTip": "Assets\\GameManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:09:06.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AchievementSystemTests.cs",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\AchievemntTests\\AchievementSystemTests.cs",
-              "RelativeDocumentMoniker": "Packages\\ie.itcarlow.achievementsystem\\AchievemntTests\\AchievementSystemTests.cs",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\AchievemntTests\\AchievementSystemTests.cs",
-              "RelativeToolTip": "Packages\\ie.itcarlow.achievementsystem\\AchievemntTests\\AchievementSystemTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:09:16.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AchievementCondition.cs",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementCondition.cs",
-              "RelativeDocumentMoniker": "Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementCondition.cs",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementCondition.cs",
-              "RelativeToolTip": "Packages\\ie.itcarlow.achievementsystem\\RunTime\\AchievementCondition.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T18:00:07.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AchievementSystemTests.asmdef",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.asmdef",
-              "RelativeDocumentMoniker": "Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.asmdef",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.asmdef",
-              "RelativeToolTip": "Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.asmdef",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001874|",
-              "WhenOpened": "2024-11-21T17:55:35.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AchievementSystemTests.cs",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
-              "RelativeDocumentMoniker": "Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
-              "RelativeToolTip": "Packages\\ie.itcarlow.achievementsystem\\Tests\\AchievementSystemTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T17:47:07.587Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AchievementCondition.cs",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\Scripts\\AchievementCondition.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AchievementCondition.cs",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\Achievement_System\\Achievement System\\Assets\\Scripts\\AchievementCondition.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AchievementCondition.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T17:47:53.148Z"
             }
           ]
         }

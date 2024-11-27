@@ -362,9 +362,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159563986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b808ff60c927043ba35930ad70e714, type: 3}
+  m_Script: {fileID: 11500000, guid: e8d587e146195a54889007926c8311eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userName: 
+  displayName: 0
+  uncompletedAchievements: []
+  completedAchievements: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

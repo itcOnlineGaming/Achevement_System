@@ -1,95 +1,105 @@
-using PlasticGui.Help;
+using Codice.Client.Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Time 2.30hrs
 public class AchievementTracker : MonoBehaviour
 {
-    public delegate bool condition();
-  
-    public static AchievementTracker instance { get; private set; }   
 
-    private List<string> titles = new List<string>();
-    private List<condition> conditions = new List<condition>();
+    public string userName;
+    public bool displayName;
 
-    private void Awake()
+    public List<string> uncompletedAchievements = new List<string>();
+
+    public List<string> completedAchievements = new List<string> ();
+
+    public AchievementTracker()
+    {    
+        userName = string.Empty;
+        displayName = false;
+    }
+    public AchievementTracker(string t_userName, bool t_displayName)
     {
-        // Singeleton management
-        if( instance != null && instance != this)
+        userName = t_userName;
+        displayName = t_displayName;
+    }
+
+    public void setUserData(string t_userName, bool t_displayName)
+    {
+        userName = t_userName;
+        displayName = t_displayName;
+    }
+
+    public void setPopUpData()
+    {
+
+    }
+
+    public void AddAchievement(string t_achievement )
+    {
+        uncompletedAchievements.Add(t_achievement);
+    }
+
+    public void CompletedAchievement( string t_achievement)
+    {
+        if( uncompletedAchievements.Contains( t_achievement))
         {
-            Destroy(this);
+            uncompletedAchievements.Remove(t_achievement);    
+            completedAchievements.Add (t_achievement);  
+            CreateAchievementPopUp(t_achievement);  
+        }
+    }
+
+    public void CreateAchievementPopUp(string t_achievementName)
+    {
+        string achievementTitle = string.Empty;
+
+        if( displayName )
+        {
+            achievementTitle = userName + " : " + t_achievementName;
         }
         else
         {
-            instance = this;    
+            achievementTitle = t_achievementName;
         }
-    }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="condition"></param>
-    /// <param name="title"></param>
-    public void addAchievement(condition condition, string title )
-    {
-        conditions.Add( condition);
-        titles.Add(title);  
-    }
+        Canvas canvas = FindAnyObjectByType<Canvas>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        for (int i = 0; i < conditions.Count; i++)
+        if (canvas == null)
         {
+            GameObject canvasObject = new GameObject("Canvas");
+            canvas = canvasObject.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
-            if (conditions[i]())
-            {
-                createAchievementPopUp(titles[i] ); 
+        }
 
-                conditions.RemoveAt(i);
-                titles.RemoveAt(i);   
-            }
-        }   
-    }
+        GameObject achievementPopUp = new GameObject("AchievementPopUp");
 
+        achievementPopUp.transform.parent = canvas.transform;
 
-    private void createAchievementPopUp(string title)
-    {
-        //Canvas canvas = FindAnyObjectByType<Canvas>();
-
-        //if( canvas == null ) 
-        //{
-        //    GameObject canvasObject = new GameObject("Canvas");
-        //    canvas = canvasObject.AddComponent<Canvas>();
-        //    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
+        achievementRect.anchoredPosition = new Vector2(0, 0);
        
-        //}
 
-        //GameObject achievementPopUp = new GameObject("AchievementPopUp");
+        Image popUpImage = achievementPopUp.AddComponent<Image>();
+        popUpImage.color = Color.white;
+
+
+        GameObject textObject = new GameObject("Achievement Title");
+
+        textObject.transform.parent = achievementPopUp.transform;
+        Text achievmentTitle = textObject.AddComponent<Text>();
+
+        achievmentTitle.transform.position = achievementPopUp.transform.position;
+        achievmentTitle.text = achievementTitle;
+        achievmentTitle.color = Color.black;
+        achievmentTitle.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        achievmentTitle.fontSize = 20;
         
-        //achievementPopUp.transform.parent = canvas.transform;  
+        RectTransform titleDimension = textObject.GetComponent<RectTransform>();
+        Vector2 titleSize = titleDimension.sizeDelta;
 
-        //RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
-        //achievementRect.anchoredPosition = new Vector2(0, 0);
-        //achievementRect.sizeDelta = new Vector2(200, 200);
-
-        //Image popUpImage = achievementPopUp.AddComponent<Image>();  
-        //popUpImage.color = Color.white;
-
-        
-        //GameObject textObject = new GameObject("Achievement Title");
-
-        //textObject.transform.parent = achievementPopUp.transform;
-        //Text achievmentTitle = textObject.AddComponent<Text>();
-
-        //achievmentTitle.transform.position = achievementPopUp.transform.position; 
-        //achievmentTitle.text = title;
-        //achievmentTitle.color = Color.black;
-        //achievmentTitle.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        //achievmentTitle.fontSize = 20;
-
-        //Instantiate(achievementPopUp);
+        achievementRect.sizeDelta = titleSize;
     }
 }

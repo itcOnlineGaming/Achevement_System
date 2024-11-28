@@ -15,12 +15,14 @@ public class AchievementTracker : MonoBehaviour
     public List<string> completedAchievements = new List<string> ();
 
     public AchievementTracker()
-    {    
+    {
+        Debug.Log("Achievement Tracker created");
         userName = string.Empty;
         displayName = false;
     }
     public AchievementTracker(string t_userName, bool t_displayName)
     {
+        Debug.Log("Achievement Tracker created");
         userName = t_userName;
         displayName = t_displayName;
     }
@@ -38,12 +40,14 @@ public class AchievementTracker : MonoBehaviour
 
     public void AddAchievement(string t_achievement )
     {
+        Debug.Log("Achievement Added");
         uncompletedAchievements.Add(t_achievement);
     }
 
     public void CompletedAchievement( string t_achievement)
     {
-        if( uncompletedAchievements.Contains( t_achievement))
+        Debug.Log("Achievement Completed");
+        if ( uncompletedAchievements.Contains( t_achievement))
         {
             uncompletedAchievements.Remove(t_achievement);    
             completedAchievements.Add (t_achievement);  
@@ -53,6 +57,7 @@ public class AchievementTracker : MonoBehaviour
 
     public void CreateAchievementPopUp(string t_achievementName)
     {
+        Debug.Log("Achievement Pop up");
         string achievementTitle = string.Empty;
 
         if( displayName )

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AchievementTracker : MonoBehaviour
+public class AchievementTracker
 {
 
     public string userName;
@@ -69,7 +69,7 @@ public class AchievementTracker : MonoBehaviour
             achievementTitle = t_achievementName;
         }
 
-        Canvas canvas = FindAnyObjectByType<Canvas>();
+        Canvas canvas = GameObject.FindAnyObjectByType<Canvas>();
 
         if (canvas == null)
         {

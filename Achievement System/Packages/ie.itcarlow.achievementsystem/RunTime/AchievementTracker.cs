@@ -84,11 +84,28 @@ public class AchievementTracker
         achievementPopUp.transform.parent = canvas.transform;
 
         RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
-        achievementRect.anchoredPosition = new Vector2(0, 0);
-       
 
+        if(AchievementPopUpSettings.achievmentPosition != Vector2.zero)
+        {
+            achievementRect.anchoredPosition = AchievementPopUpSettings.achievmentPosition;
+        }
+        else
+        {
+            achievementRect.anchoredPosition = new Vector2(0, 0);
+        }
+
+        
         Image popUpImage = achievementPopUp.AddComponent<Image>();
-        popUpImage.color = Color.white;
+
+        if(AchievementPopUpSettings.achievementBackroundColor != new Color(-1f, -1f, -1f))
+        {
+            popUpImage.color = AchievementPopUpSettings.achievementBackroundColor;
+        }
+        else
+        {
+            popUpImage.color = Color.white;
+        }    
+        
 
 
         GameObject textObject = new GameObject("Achievement Title");
@@ -99,12 +116,28 @@ public class AchievementTracker
         achievmentTitle.transform.position = achievementPopUp.transform.position;
         achievmentTitle.text = achievementTitle;
         achievmentTitle.color = Color.black;
-        achievmentTitle.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+
+
+        if( AchievementPopUpSettings.achievementFont != null ) 
+        {
+            achievmentTitle.font = AchievementPopUpSettings.achievementFont;
+        }
+        else
+        {
+            achievmentTitle.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        }
+        
+        
+        
         achievmentTitle.fontSize = 20;
         
         RectTransform titleDimension = textObject.GetComponent<RectTransform>();
         Vector2 titleSize = titleDimension.sizeDelta;
 
         achievementRect.sizeDelta = titleSize;
+
+        //achievementPopUp.AddComponent<AchievmentPopUp>();
     }
+
+
 }

@@ -1,0 +1,2 @@
+Packages\ie.itcarlow.achievementsystem\RunTime\AchievementPopUpSettings.cs(13,11): warning CS0414: The field 'AchievementPopUpSettings.achievementImage' is assigned but its value is never used
+Packages\ie.itcarlow.achievementsystem\RunTime\AchievementPopUpSettings.cs(12,10): warning CS0414: The field 'AchievementPopUpSettings.achievementFont' is assigned but its value is never used

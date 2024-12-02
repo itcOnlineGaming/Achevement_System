@@ -25,6 +25,17 @@ public static class AchievementPopUpSettings
     /// </summary>
     static public Sprite achievementImage = null;
 
+    /// <summary>
+    /// 
+    /// </summary>
     static public Color achievementBackroundColor = new Color(-1f, -1f, -1f );
+
+
+    static public IEnumerator DestroyGameObject( GameObject t_gameObject)
+    {
+        yield return new WaitForSeconds(achievementTTL);
+
+        DestroyGameObject(t_gameObject);
+    }
 
 }

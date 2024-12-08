@@ -58,9 +58,16 @@ public class AchievementSystem : MonoBehaviour
     /// </summary>
     /// <param name="t_username">Users name </param>
     /// <param name="t_displayNameOnPopUp">Whether their name should pop up in achievement</param>
-    public void addProfile(string t_username, bool t_displayNameOnPopUp)
+    public int addProfile(string t_username, bool t_displayNameOnPopUp)
     {
         playersProfiles.Add(new AchievementProfile(t_username, t_displayNameOnPopUp));
+
+        return playersProfiles.Count - 1;
+    }
+
+    public AchievementProfile getProfile( int t_playerIndex )
+    {
+        return playersProfiles[t_playerIndex];  
     }
 
     /// <summary>

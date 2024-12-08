@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class AchievementSystem : MonoBehaviour 
 {
 
+    /// <summary>
+    /// Singelotn instance
+    /// </summary>
     public static AchievementSystem _instance;
 
-    List<AchievementProfile> players = new List<AchievementProfile>();
+    /// <summary>
+    /// Stores the players completed achievements and whether you should display their name on the achievement
+    /// </summary>
+    List<AchievementProfile> playersProfiles = new List<AchievementProfile>();
 
     /// <summary>
     /// Bool which desices whether you use the the user defined global pop ups or a specified one for this 
@@ -22,6 +28,7 @@ public class AchievementSystem : MonoBehaviour
     /// </summary>
     public AchievementPopUpSetting userDefinedSettings = new AchievementPopUpSetting();
 
+    private List<GameObject> activeAchievements = new List<GameObject>();
 
     public static AchievementSystem Instance
     {
@@ -46,30 +53,44 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds a profile to the system
+    /// </summary>
+    /// <param name="t_username">Users name </param>
+    /// <param name="t_displayNameOnPopUp">Whether their name should pop up in achievement</param>
     public void addProfile(string t_username, bool t_displayNameOnPopUp)
     {
-        players.Add(new AchievementProfile(t_username, t_displayNameOnPopUp));
+        playersProfiles.Add(new AchievementProfile(t_username, t_displayNameOnPopUp));
     }
 
+    /// <summary>
+    /// Adds achievement to user
+    /// </summary>
+    /// <param name="t_achievement">The Achievements</param>
     public void AddAchievementToProfiles(string t_achievement )
     {
-        for(int i = 0; i < players.Count; i++) 
+        for(int i = 0; i < playersProfiles.Count; i++) 
         { 
             // if it hasnt been competeted already
-            if(!players[i].completedAchievements.Contains(t_achievement))
+            if(!playersProfiles[i].completedAchievements.Contains(t_achievement))
             {
-                players[i].uncompletedAchievements.Add(t_achievement);
+                playersProfiles[i].uncompletedAchievements.Add(t_achievement);
             }
         }
     }
 
+    /// <summary>
+    /// Creates achievement and creates pop up for achievement
+    /// </summary>
+    /// <param name="playerIndex">the profile we are adding the achievement to</param>
+    /// <param name="t_achievement"> the achievement</param>
     public void CompletedAchievement(int playerIndex,  string t_achievement)
     {
         // if it hasnt been competeted already
-        if (!players[playerIndex].completedAchievements.Contains(t_achievement))
+        if (!playersProfiles[playerIndex].completedAchievements.Contains(t_achievement))
         {
-            players[playerIndex].uncompletedAchievements.Remove(t_achievement);
-            players[playerIndex].completedAchievements.Add(t_achievement);
+            playersProfiles[playerIndex].uncompletedAchievements.Remove(t_achievement);
+            playersProfiles[playerIndex].completedAchievements.Add(t_achievement);
             CreateAchievementPopUp(playerIndex, t_achievement);
         }
        
@@ -90,13 +111,13 @@ public class AchievementSystem : MonoBehaviour
             currentForTHisAchievement = userDefinedSettings;
         }
 
-        if (players[playerIndex].displayName)
+        if (playersProfiles[playerIndex].displayName)
         {
-            achievementTitle = "Achievement Unlocked " + players[playerIndex].userName + "!" + "\n" + t_achievementName;
+            achievementTitle = "Achievement Unlocked " + playersProfiles[playerIndex].userName + "!" + "\n" + t_achievementName;
         }
         else
         {
-            achievementTitle = t_achievementName;
+            achievementTitle = "Achievement Unlocked\n" + t_achievementName;
         }
 
         Canvas canvas = GameObject.FindAnyObjectByType<Canvas>();
@@ -109,7 +130,7 @@ public class AchievementSystem : MonoBehaviour
 
         }
 
-        GameObject achievementPopUp = new GameObject(t_achievementName + " AchievementPopUp");
+        GameObject achievementPopUp = new GameObject(t_achievementName + "AchievementPopUp");
 
         achievementPopUp.transform.parent = canvas.transform;
 
@@ -151,25 +172,32 @@ public class AchievementSystem : MonoBehaviour
 
         achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize + currentForTHisAchievement.textPadding;
 
-        StartCoroutine(destroyAchievement(achievementPopUp));
-    }
-
-    public  IEnumerator destroyAchievement(GameObject t_popUp)
-    {
-        float TTL = 0;
-
-        if (useGlobalDefaults)
+        // if there are many active then we want them to stay for longer so they are visible
+        if ( activeAchievements.Count > 0 )
         {
-            TTL = AchievementPopUpGlobalSettings.settings.timeToLive;
+            StartCoroutine(destroyAchievement(achievementPopUp, currentForTHisAchievement.timeToLive * activeAchievements.Count));
         }
         else
         {
-            TTL = userDefinedSettings.timeToLive;
+            StartCoroutine(destroyAchievement(achievementPopUp, currentForTHisAchievement.timeToLive));
         }
+        
 
+        activeAchievements.Add(achievementPopUp);
+    }
 
-        yield return new WaitForSeconds( TTL);
+    /// <summary>
+    /// destroys said game object after a certain amoutn of time
+    /// </summary>
+    /// <param name="t_popUp"></param>
+    /// <param name="t_timeToLive"></param>
+    /// <returns></returns>
+    public  IEnumerator destroyAchievement(GameObject t_popUp, float t_timeToLive)
+    {
 
+        yield return new WaitForSeconds( t_timeToLive);
+
+        activeAchievements.Remove(t_popUp);
         Destroy(t_popUp );
     }
 

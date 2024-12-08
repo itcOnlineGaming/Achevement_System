@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,7 +81,7 @@ public class AchievementSystem : MonoBehaviour
 
         AchievementPopUpSetting currentForTHisAchievement;
 
-        if( useGlobalDefaults)
+        if (useGlobalDefaults)
         {
             currentForTHisAchievement = AchievementPopUpGlobalSettings.settings;
         }
@@ -91,7 +92,7 @@ public class AchievementSystem : MonoBehaviour
 
         if (players[playerIndex].displayName)
         {
-            achievementTitle = players[playerIndex].userName + "\n" + t_achievementName;
+            achievementTitle = "Achievement Unlocked " + players[playerIndex].userName + "!" + "\n" + t_achievementName;
         }
         else
         {
@@ -113,13 +114,23 @@ public class AchievementSystem : MonoBehaviour
         achievementPopUp.transform.parent = canvas.transform;
 
         RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
-        achievementRect.anchoredPosition = currentForTHisAchievement.achievmentPosition;
-        achievementRect.sizeDelta = currentForTHisAchievement.achievementImageSize;
+        achievementRect.anchoredPosition = currentForTHisAchievement.position;
+        achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize;
 
-        Debug.Log("Pos: " + currentForTHisAchievement.achievmentPosition);
+        Debug.Log("Pos: " + currentForTHisAchievement.position);
 
         Image popUpImage = achievementPopUp.AddComponent<Image>();
-        popUpImage.color = currentForTHisAchievement.achievementBackroundColor;
+
+        if (currentForTHisAchievement.backgroundColor != null )
+        {
+            popUpImage.color = currentForTHisAchievement.backgroundColor;
+        }
+        
+
+        if( currentForTHisAchievement.backgroundSpirte != null)
+        {
+            popUpImage.sprite = Sprite.Create(currentForTHisAchievement.backgroundSpirte, new Rect(0, 0, currentForTHisAchievement.backgroundSpirte.width, currentForTHisAchievement.backgroundSpirte.height), new Vector2(0.5f, 0.5f));
+        }
 
 
         GameObject textObject = new GameObject("Achievement Title");
@@ -129,8 +140,8 @@ public class AchievementSystem : MonoBehaviour
 
         achievmentTitle.transform.position = achievementPopUp.transform.position;
         achievmentTitle.text = achievementTitle;
-        achievmentTitle.color = Color.black;
-        achievmentTitle.font = currentForTHisAchievement.achievementFont;
+        achievmentTitle.color = currentForTHisAchievement.textColor;
+        achievmentTitle.font = currentForTHisAchievement.textFont;
 
         // making the text fit the pop up box
         RectTransform titleRect = textObject.GetComponent<RectTransform>();
@@ -139,7 +150,26 @@ public class AchievementSystem : MonoBehaviour
         achievmentTitle.alignment = TextAnchor.MiddleCenter;
 
 
+        StartCoroutine(destroyAchievement(achievementPopUp));
+    }
 
+    public  IEnumerator destroyAchievement(GameObject t_popUp)
+    {
+        float TTL = 0;
+
+        if (useGlobalDefaults)
+        {
+            TTL = AchievementPopUpGlobalSettings.settings.timeToLive;
+        }
+        else
+        {
+            TTL = userDefinedSettings.timeToLive;
+        }
+
+
+        yield return new WaitForSeconds( TTL);
+
+        Destroy(t_popUp );
     }
 
 

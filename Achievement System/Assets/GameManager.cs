@@ -1,23 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    AchievementSystem achievementTracker = new AchievementSystem();
+
     // Start is called before the first frame update
     void Start()
     {
-        AchievementPopUpGlobalSettings.settings.achievementTTL = 5f;
-        AchievementPopUpGlobalSettings.settings.achievmentPosition = new Vector2 (0, 0);
-        AchievementPopUpGlobalSettings.settings.achievementFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        AchievementPopUpGlobalSettings.settings.achievementImageSize = new Vector2(600, 200);
-        AchievementPopUpGlobalSettings.settings.achievementBackroundColor = Color.white;
+
+
+        AchievementPopUpGlobalSettings.settings.timeToLive = 5f;
+        AchievementPopUpGlobalSettings.settings.position = new Vector2 (0, 0);
+        AchievementPopUpGlobalSettings.settings.textFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        AchievementPopUpGlobalSettings.settings.textColor = Color.white;
+        AchievementPopUpGlobalSettings.settings.backgroundSpirte = Resources.Load<Texture2D>("box");
+        AchievementPopUpGlobalSettings.settings.backgroundSize = new Vector2(600, 200);
+        AchievementPopUpGlobalSettings.settings.backgroundColor = Color.black;
 
         AchievementSystem.Instance.addProfile("Josh", true);
 
-        achievementTracker.useGlobalDefaults = true;    
-        achievementTracker.AddAchievementToProfiles(Achievements.PressedV);
+        AchievementSystem.Instance.useGlobalDefaults = true;
+        AchievementSystem.Instance.AddAchievementToProfiles(Achievements.PressedV);
 
     }
 

@@ -12,31 +12,36 @@ public struct AchievementPopUpSetting
     /// <summary>
     /// Pop up time to live
     /// </summary>
-    public float achievementTTL;
+    public float timeToLive;
     /// <summary>
     /// Position of pop up on screen
     /// </summary>
-    public Vector2 achievmentPosition;
+    public Vector2 position;
 
     /// <summary>
     /// Desired font of the achievement text
     /// </summary>
-    public Font achievementFont;
+    public Font textFont;
+
+    /// <summary>
+    /// Desired font of the achievement text
+    /// </summary>
+    public Color textColor;
 
     /// <summary>
     /// Image of the achievement background
     /// </summary>
-    public Sprite achievementImage;
+    public Texture2D backgroundSpirte;
 
     /// <summary>
     /// Image of the achievement background
     /// </summary>
-    public Vector2 achievementImageSize;
+    public Vector2 backgroundSize;
 
     /// <summary>
     /// Back ground 
     /// </summary>
-    public Color achievementBackroundColor;
+    public Color backgroundColor;
 
 }
 

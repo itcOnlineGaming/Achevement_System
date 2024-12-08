@@ -98,7 +98,6 @@ public class AchievementSystem : MonoBehaviour
 
     public void CreateAchievementPopUp(int playerIndex, string t_achievementName)
     {
-        string achievementTitle = string.Empty;
 
         AchievementPopUpSetting currentForTHisAchievement;
 
@@ -111,79 +110,85 @@ public class AchievementSystem : MonoBehaviour
             currentForTHisAchievement = userDefinedSettings;
         }
 
-        if (playersProfiles[playerIndex].displayName)
+        if ( activeAchievements.Count == 0)
         {
-            achievementTitle = "Achievement Unlocked " + playersProfiles[playerIndex].userName + "!" + "\n" + t_achievementName;
-        }
-        else
-        {
-            achievementTitle = "Achievement Unlocked\n" + t_achievementName;
-        }
+            string achievementTitle = string.Empty;
 
-        Canvas canvas = GameObject.FindAnyObjectByType<Canvas>();
+            
 
-        if (canvas == null)
-        {
-            GameObject canvasObject = new GameObject("Canvas");
-            canvas = canvasObject.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            if (playersProfiles[playerIndex].displayName)
+            {
+                achievementTitle = "Achievement Unlocked " + playersProfiles[playerIndex].userName + "!" + "\n" + t_achievementName;
+            }
+            else
+            {
+                achievementTitle = "Achievement Unlocked\n" + t_achievementName;
+            }
 
-        }
+            Canvas canvas = GameObject.FindAnyObjectByType<Canvas>();
 
-        GameObject achievementPopUp = new GameObject(t_achievementName + "AchievementPopUp");
+            if (canvas == null)
+            {
+                GameObject canvasObject = new GameObject("Canvas");
+                canvas = canvasObject.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
-        achievementPopUp.transform.parent = canvas.transform;
+            }
 
-        RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
-        achievementRect.anchoredPosition = currentForTHisAchievement.position;
-        achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize;
+            GameObject achievementPopUp = new GameObject(t_achievementName + "AchievementPopUp");
 
-        Debug.Log("Pos: " + currentForTHisAchievement.position);
+            achievementPopUp.transform.parent = canvas.transform;
 
-        Image popUpImage = achievementPopUp.AddComponent<Image>();
+            RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
+            achievementRect.anchoredPosition = currentForTHisAchievement.position;
+            achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize;
 
-        if (currentForTHisAchievement.backgroundColor != null )
-        {
-            popUpImage.color = currentForTHisAchievement.backgroundColor;
-        }
-        
+            Debug.Log("Pos: " + currentForTHisAchievement.position);
 
-        if( currentForTHisAchievement.backgroundSpirte != null)
-        {
-            popUpImage.sprite = Sprite.Create(currentForTHisAchievement.backgroundSpirte, new Rect(0, 0, currentForTHisAchievement.backgroundSpirte.width, currentForTHisAchievement.backgroundSpirte.height), new Vector2(0.5f, 0.5f));
-        }
+            Image popUpImage = achievementPopUp.AddComponent<Image>();
+
+            if (currentForTHisAchievement.backgroundColor != null)
+            {
+                popUpImage.color = currentForTHisAchievement.backgroundColor;
+            }
 
 
-        GameObject textObject = new GameObject("Achievement Title");
+            if (currentForTHisAchievement.backgroundSpirte != null)
+            {
+                popUpImage.sprite = Sprite.Create(currentForTHisAchievement.backgroundSpirte, new Rect(0, 0, currentForTHisAchievement.backgroundSpirte.width, currentForTHisAchievement.backgroundSpirte.height), new Vector2(0.5f, 0.5f));
+            }
 
-        textObject.transform.parent = achievementPopUp.transform;
-        Text achievmentTitle = textObject.AddComponent<Text>();
 
-        achievmentTitle.transform.position = achievementPopUp.transform.position;
-        achievmentTitle.text = achievementTitle;
-        achievmentTitle.color = currentForTHisAchievement.textColor;
-        achievmentTitle.font = currentForTHisAchievement.textFont;
+            GameObject textObject = new GameObject("Achievement Title");
 
-        // making the text fit the pop up box
-        RectTransform titleRect = textObject.GetComponent<RectTransform>();
-        titleRect.sizeDelta = achievementRect.rect.size;
-        achievmentTitle.resizeTextForBestFit = true;
-        achievmentTitle.alignment = TextAnchor.MiddleCenter;
+            textObject.transform.parent = achievementPopUp.transform;
+            Text achievmentTitle = textObject.AddComponent<Text>();
 
-        achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize + currentForTHisAchievement.textPadding;
+            achievmentTitle.transform.position = achievementPopUp.transform.position;
+            achievmentTitle.text = achievementTitle;
+            achievmentTitle.color = currentForTHisAchievement.textColor;
+            achievmentTitle.font = currentForTHisAchievement.textFont;
 
-        // if there are many active then we want them to stay for longer so they are visible
-        if ( activeAchievements.Count > 0 )
-        {
-            StartCoroutine(delayedPopUp(achievementPopUp, currentForTHisAchievement.timeToLive * activeAchievements.Count, currentForTHisAchievement.timeToLive));
-        }
-        else
-        {
+            // making the text fit the pop up box
+            RectTransform titleRect = textObject.GetComponent<RectTransform>();
+            titleRect.sizeDelta = achievementRect.rect.size;
+            achievmentTitle.resizeTextForBestFit = true;
+            achievmentTitle.alignment = TextAnchor.MiddleCenter;
+
+            achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize + currentForTHisAchievement.textPadding;
+
+           
             StartCoroutine(destroyAchievement(achievementPopUp, currentForTHisAchievement.timeToLive));
-        }
-        
+     
 
-        activeAchievements.Add(achievementPopUp);
+
+            activeAchievements.Add(achievementPopUp);
+        }
+        else
+        {
+            StartCoroutine(delayedPopUp(t_achievementName, playerIndex, currentForTHisAchievement.timeToLive * activeAchievements.Count));
+        }
+
     }
 
     /// <summary>
@@ -202,12 +207,12 @@ public class AchievementSystem : MonoBehaviour
     }
 
 
-    public IEnumerator delayedPopUp(GameObject t_popUp,float t_delay,  float t_timeToLive)
+    public IEnumerator delayedPopUp(string t_achievemnt,int t_playerIndex,float t_delay )
     {
 
         yield return new WaitForSeconds(t_delay);
 
-        StartCoroutine( destroyAchievement(t_popUp, t_timeToLive) );
+        CreateAchievementPopUp(t_playerIndex, t_achievemnt);
 
     }
 }

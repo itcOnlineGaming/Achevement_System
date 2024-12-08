@@ -1,0 +1,1 @@
+Packages\ie.itcarlow.achievementsystem\RunTime\AchievementManager.cs(20,10): warning CS0414: The field 'AchievementManager.useGlobalDefaults' is assigned but its value is never used

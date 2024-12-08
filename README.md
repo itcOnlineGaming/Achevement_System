@@ -109,7 +109,7 @@ AchievementPopUpSetting newsettings;
 newSettings.timeToLive = 5;
 newSettings.postion = new Vector2( 200, 200);
 newSettings.textFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-newSettings..textColor = Color.White;
+newSettings.textColor = Color.White;
 newSettings.textPadding = new Vector2( 10, 10);
 newSettings.backgroundSize = new Vector2( 200, 200);
 

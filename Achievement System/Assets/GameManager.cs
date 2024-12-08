@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    AchievementManager achievementTracker = new AchievementManager();
+    AchievementSystem achievementTracker = new AchievementSystem();
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
         AchievementPopUpGlobalSettings.settings.achievementImageSize = new Vector2(600, 200);
         AchievementPopUpGlobalSettings.settings.achievementBackroundColor = Color.white;
 
-        achievementTracker.userName = "Josh";
-        achievementTracker.displayName = true;
+        AchievementSystem.Instance.addProfile("Josh", true);
+
         achievementTracker.useGlobalDefaults = true;    
-        achievementTracker.AddAchievement(Achievements.PressedV);
+        achievementTracker.AddAchievementToProfiles(Achievements.PressedV);
 
     }
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         if( Input.GetKeyDown(KeyCode.V))
         {
-            achievementTracker.CompletedAchievement(Achievements.PressedV);
+            AchievementSystem.Instance.CompletedAchievement(0, Achievements.PressedV);
             return true;
         }
 

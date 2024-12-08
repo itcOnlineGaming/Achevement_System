@@ -2,19 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AchievementManager
+public class AchievementSystem : MonoBehaviour 
 {
 
-    public string userName;
-    public bool displayName;
+    public static AchievementSystem _instance;
 
-    public List<string> uncompletedAchievements = new List<string>();
-
-    /// <summary>
-    /// List of achievements that have been completed
-    /// </summary>
-    public List<string> completedAchievements = new List<string> ();
-
+    List<AchievementProfile> players = new List<AchievementProfile>();
 
     /// <summary>
     /// Bool which desices whether you use the the user defined global pop ups or a specified one for this 
@@ -28,45 +21,60 @@ public class AchievementManager
     /// </summary>
     public AchievementPopUpSetting userDefinedSettings = new AchievementPopUpSetting();
 
-    public AchievementManager()
-    {
-        Debug.Log("Achievement Tracker created");
-        userName = string.Empty;
-        displayName = false;
-  
-    }
-    public AchievementManager(string t_userName, bool t_displayName)
-    {
-        Debug.Log("Achievement Tracker created");
-        userName = t_userName;
-        displayName = t_displayName;
-    }
 
-
-    public void setUserData(string t_userName, bool t_displayName)
+    public static AchievementSystem Instance
     {
-        userName = t_userName;
-        displayName = t_displayName;
-    }
-
-    public void AddAchievement(string t_achievement )
-    {
-        Debug.Log("Achievement Added");
-        uncompletedAchievements.Add(t_achievement);
-    }
-
-    public void CompletedAchievement( string t_achievement)
-    {
-        Debug.Log("Achievement Completed");
-        if ( uncompletedAchievements.Contains( t_achievement))
+        get
         {
-            uncompletedAchievements.Remove(t_achievement);    
-            completedAchievements.Add (t_achievement);  
-            CreateAchievementPopUp(t_achievement);  
+            if (_instance == null)
+            {
+                // Check if an existing GameManager is present in the scene
+                _instance = FindObjectOfType<AchievementSystem>();
+
+                if (_instance == null)
+                {
+                    // No existing GameManager found, so create a new GameObject and add this script
+                    GameObject em = new GameObject("EventManager");
+                    _instance = em.AddComponent<AchievementSystem>();
+
+                    // Optionally, make this object persistent
+                    DontDestroyOnLoad(em);
+                }
+            }
+            return _instance;
         }
     }
 
-    public void CreateAchievementPopUp(string t_achievementName)
+    public void addProfile(string t_username, bool t_displayNameOnPopUp)
+    {
+        players.Add(new AchievementProfile(t_username, t_displayNameOnPopUp));
+    }
+
+    public void AddAchievementToProfiles(string t_achievement )
+    {
+        for(int i = 0; i < players.Count; i++) 
+        { 
+            // if it hasnt been competeted already
+            if(!players[i].completedAchievements.Contains(t_achievement))
+            {
+                players[i].uncompletedAchievements.Add(t_achievement);
+            }
+        }
+    }
+
+    public void CompletedAchievement(int playerIndex,  string t_achievement)
+    {
+        // if it hasnt been competeted already
+        if (!players[playerIndex].completedAchievements.Contains(t_achievement))
+        {
+            players[playerIndex].uncompletedAchievements.Remove(t_achievement);
+            players[playerIndex].completedAchievements.Add(t_achievement);
+            CreateAchievementPopUp(playerIndex, t_achievement);
+        }
+       
+    }
+
+    public void CreateAchievementPopUp(int playerIndex, string t_achievementName)
     {
         string achievementTitle = string.Empty;
 
@@ -81,9 +89,9 @@ public class AchievementManager
             currentForTHisAchievement = userDefinedSettings;
         }
 
-        if (displayName)
+        if (players[playerIndex].displayName)
         {
-            achievementTitle = userName + "\n" + t_achievementName;
+            achievementTitle = players[playerIndex].userName + "\n" + t_achievementName;
         }
         else
         {

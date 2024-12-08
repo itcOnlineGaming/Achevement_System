@@ -175,7 +175,7 @@ public class AchievementSystem : MonoBehaviour
         // if there are many active then we want them to stay for longer so they are visible
         if ( activeAchievements.Count > 0 )
         {
-            StartCoroutine(destroyAchievement(achievementPopUp, currentForTHisAchievement.timeToLive * activeAchievements.Count));
+            StartCoroutine(delayedPopUp(achievementPopUp, currentForTHisAchievement.timeToLive * activeAchievements.Count, currentForTHisAchievement.timeToLive);
         }
         else
         {
@@ -202,4 +202,12 @@ public class AchievementSystem : MonoBehaviour
     }
 
 
+    public IEnumerator delayedPopUp(GameObject t_popUp,float t_delay,  float t_timeToLive)
+    {
+
+        yield return new WaitForSeconds(t_delay);
+
+        StartCoroutine( destroyAchievement(t_popUp, t_timeToLive) );
+
+    }
 }

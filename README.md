@@ -1,4 +1,4 @@
-# Achievement System
+# Achievement System Guide
 
 Here you will see how to use the achievement system package
 

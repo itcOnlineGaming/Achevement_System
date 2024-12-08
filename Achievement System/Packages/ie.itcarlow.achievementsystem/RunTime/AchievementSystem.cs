@@ -86,6 +86,14 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
+    public void addCompletedAchievement(int t_playerIndex, string t_achievement)
+    {
+        if (!playersProfiles[t_playerIndex].completedAchievements.Contains(t_achievement))
+        {
+            playersProfiles[t_playerIndex].completedAchievements.Add(t_achievement);
+        }
+    }
+
     /// <summary>
     /// Creates achievement and creates pop up for achievement
     /// </summary>

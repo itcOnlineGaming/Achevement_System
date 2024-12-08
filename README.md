@@ -8,7 +8,7 @@ Here you will see how to use the achievement system package
 
 1. [Pop-Up Visuals](#pop-up-visuals)
 2. [Profiles](#profiles)
-3. [Achievements](#adding-achievements)
+3. [Achievements](#achievements)
 
 ---
 

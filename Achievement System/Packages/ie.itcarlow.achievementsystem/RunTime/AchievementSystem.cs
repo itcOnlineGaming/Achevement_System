@@ -149,6 +149,7 @@ public class AchievementSystem : MonoBehaviour
         achievmentTitle.resizeTextForBestFit = true;
         achievmentTitle.alignment = TextAnchor.MiddleCenter;
 
+        achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize + currentForTHisAchievement.textPadding;
 
         StartCoroutine(destroyAchievement(achievementPopUp));
     }

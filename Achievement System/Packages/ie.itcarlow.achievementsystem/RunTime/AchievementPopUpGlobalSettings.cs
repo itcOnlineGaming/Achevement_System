@@ -29,6 +29,10 @@ public struct AchievementPopUpSetting
     public Color textColor;
 
     /// <summary>
+    /// Space between text and the edge of the achievement background
+    /// </summary>
+    public Vector2 textPadding;
+    /// <summary>
     /// Image of the achievement background
     /// </summary>
     public Texture2D backgroundSpirte;

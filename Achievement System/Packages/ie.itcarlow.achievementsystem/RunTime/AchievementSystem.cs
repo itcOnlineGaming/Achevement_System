@@ -86,6 +86,11 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Directly adds achievement to certain player
+    /// </summary>
+    /// <param name="t_playerIndex">Certain player</param>
+    /// <param name="t_achievement">Achievment</param>
     public void addCompletedAchievement(int t_playerIndex, string t_achievement)
     {
         if (!playersProfiles[t_playerIndex].completedAchievements.Contains(t_achievement))
@@ -106,31 +111,40 @@ public class AchievementSystem : MonoBehaviour
         {
             playersProfiles[playerIndex].uncompletedAchievements.Remove(t_achievement);
             playersProfiles[playerIndex].completedAchievements.Add(t_achievement);
-            CreateAchievementPopUp(playerIndex, t_achievement);
+
+
+
+            AchievementPopUpSetting currentForTHisAchievement;
+
+            if (useGlobalDefaults)
+            {
+                currentForTHisAchievement = AchievementPopUpGlobalSettings.settings;
+            }
+            else
+            {
+                currentForTHisAchievement = userDefinedSettings;
+            }
+
+            CreateAchievementPopUp(playerIndex, t_achievement, currentForTHisAchievement);
         }
        
     }
 
-    public void CreateAchievementPopUp(int playerIndex, string t_achievementName)
+    /// <summary>
+    /// Creates an achievement with using the achievment name as the title and applying the achievement setting to it to create a custom achievement
+    /// </summary>
+    /// <param name="playerIndex">Which player it is relative to</param>
+    /// <param name="t_achievementName">Title on achievement</param>
+    /// <param name="popUpSettings">Settings which will decide aspects like sprite, size, position etc</param>
+    public void CreateAchievementPopUp(int playerIndex, string t_achievementName, AchievementPopUpSetting popUpSettings)
     {
 
-        AchievementPopUpSetting currentForTHisAchievement;
-
-        if (useGlobalDefaults)
-        {
-            currentForTHisAchievement = AchievementPopUpGlobalSettings.settings;
-        }
-        else
-        {
-            currentForTHisAchievement = userDefinedSettings;
-        }
-
+        // if there are more than 0 achievements, we start a couritine that delays the pop up til the current one finished
         if ( activeAchievements.Count == 0)
         {
             string achievementTitle = string.Empty;
 
             
-
             if (playersProfiles[playerIndex].displayName)
             {
                 achievementTitle = "Achievement Unlocked " + playersProfiles[playerIndex].userName + "!" + "\n" + t_achievementName;
@@ -155,22 +169,22 @@ public class AchievementSystem : MonoBehaviour
             achievementPopUp.transform.parent = canvas.transform;
 
             RectTransform achievementRect = achievementPopUp.AddComponent<RectTransform>();
-            achievementRect.anchoredPosition = currentForTHisAchievement.position;
-            achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize;
+            achievementRect.anchoredPosition = popUpSettings.position;
+            achievementRect.sizeDelta = popUpSettings.backgroundSize;
 
-            Debug.Log("Pos: " + currentForTHisAchievement.position);
+            Debug.Log("Pos: " + popUpSettings.position);
 
             Image popUpImage = achievementPopUp.AddComponent<Image>();
 
-            if (currentForTHisAchievement.backgroundColor != null)
+            if (popUpSettings.backgroundColor != null)
             {
-                popUpImage.color = currentForTHisAchievement.backgroundColor;
+                popUpImage.color = popUpSettings.backgroundColor;
             }
 
 
-            if (currentForTHisAchievement.backgroundSpirte != null)
+            if (popUpSettings.backgroundSpirte != null)
             {
-                popUpImage.sprite = Sprite.Create(currentForTHisAchievement.backgroundSpirte, new Rect(0, 0, currentForTHisAchievement.backgroundSpirte.width, currentForTHisAchievement.backgroundSpirte.height), new Vector2(0.5f, 0.5f));
+                popUpImage.sprite = Sprite.Create(popUpSettings.backgroundSpirte, new Rect(0, 0, popUpSettings.backgroundSpirte.width, popUpSettings.backgroundSpirte.height), new Vector2(0.5f, 0.5f));
             }
 
 
@@ -181,8 +195,8 @@ public class AchievementSystem : MonoBehaviour
 
             achievmentTitle.transform.position = achievementPopUp.transform.position;
             achievmentTitle.text = achievementTitle;
-            achievmentTitle.color = currentForTHisAchievement.textColor;
-            achievmentTitle.font = currentForTHisAchievement.textFont;
+            achievmentTitle.color = popUpSettings.textColor;
+            achievmentTitle.font = popUpSettings.textFont;
 
             // making the text fit the pop up box
             RectTransform titleRect = textObject.GetComponent<RectTransform>();
@@ -190,10 +204,10 @@ public class AchievementSystem : MonoBehaviour
             achievmentTitle.resizeTextForBestFit = true;
             achievmentTitle.alignment = TextAnchor.MiddleCenter;
 
-            achievementRect.sizeDelta = currentForTHisAchievement.backgroundSize + currentForTHisAchievement.textPadding;
+            achievementRect.sizeDelta = popUpSettings.backgroundSize + popUpSettings.textPadding;
 
            
-            StartCoroutine(destroyAchievement(achievementPopUp, currentForTHisAchievement.timeToLive));
+            StartCoroutine(destroyAchievement(achievementPopUp, popUpSettings.timeToLive));
      
 
 
@@ -201,7 +215,7 @@ public class AchievementSystem : MonoBehaviour
         }
         else
         {
-            StartCoroutine(delayedPopUp(t_achievementName, playerIndex, currentForTHisAchievement.timeToLive * activeAchievements.Count));
+            StartCoroutine(delayedPopUp(t_achievementName, playerIndex, popUpSettings.timeToLive * activeAchievements.Count, popUpSettings));
         }
 
     }
@@ -222,12 +236,12 @@ public class AchievementSystem : MonoBehaviour
     }
 
 
-    public IEnumerator delayedPopUp(string t_achievemnt,int t_playerIndex,float t_delay )
+    public IEnumerator delayedPopUp(string t_achievemnt,int t_playerIndex,float t_delay , AchievementPopUpSetting currentForTHisAchievement)
     {
 
         yield return new WaitForSeconds(t_delay);
 
-        CreateAchievementPopUp(t_playerIndex, t_achievemnt);
+        CreateAchievementPopUp(t_playerIndex, t_achievemnt, currentForTHisAchievement);
 
     }
 }

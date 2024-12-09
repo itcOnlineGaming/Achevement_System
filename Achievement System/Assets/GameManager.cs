@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     {
 
         setUpGlobals();
+        demoSettign1();
+        demoSettign2();
         addPlayers();   
 
 
@@ -38,9 +40,31 @@ public class GameManager : MonoBehaviour
         AchievementPopUpGlobalSettings.settings.position = new Vector2(0, 0);
         AchievementPopUpGlobalSettings.settings.textFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         AchievementPopUpGlobalSettings.settings.textColor = Color.white;
-        AchievementPopUpGlobalSettings.settings.backgroundSpirte = Resources.Load<Texture2D>("box");
-        AchievementPopUpGlobalSettings.settings.backgroundSize = new Vector2(600, 200);
-        AchievementPopUpGlobalSettings.settings.backgroundColor = Color.white;
+        AchievementPopUpGlobalSettings.settings.backgroundSize = new Vector2(400, 200);
+        AchievementPopUpGlobalSettings.settings.backgroundColor = Color.black;
+    }
+
+    void demoSettign1()
+    {
+        setting1.timeToLive = 5f;
+        setting1.position = new Vector2(0, 0);
+        setting1.textFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        setting1.textColor = Color.red;
+        setting1.backgroundSpirte = Resources.Load<Texture2D>("box2");
+        setting1.backgroundSize = new Vector2(600, 200);
+        setting1.backgroundColor = Color.white;
+    }
+
+    void demoSettign2()
+    {
+        setting2.timeToLive = 5f;
+        setting2.position = new Vector2(0, 0);
+        setting2.textFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        setting2.textColor = Color.yellow;
+        setting2.backgroundSpirte = Resources.Load<Texture2D>("star");
+        setting2.backgroundSize = new Vector2(200, 200);
+        setting2.backgroundColor = Color.white;
+        setting2.textPadding = new Vector2(225, 225);
     }
 
     void addPlayers()
@@ -57,8 +81,29 @@ public class GameManager : MonoBehaviour
 
     bool PressedButtton()
     {
-        if( Input.GetKeyDown(KeyCode.V))
+        if( Input.GetKeyDown(KeyCode.C))
         {
+
+            AchievementSystem.Instance.useGlobalDefaults = true;
+            if (player1Turn)
+            {
+                AchievementSystem.Instance.CompletedAchievement(player1, Achievements.PressedC);
+                player1Turn = !player1Turn;
+            }
+            else
+            {
+                AchievementSystem.Instance.CompletedAchievement(player2, Achievements.PressedC);
+                player1Turn = !player1Turn;
+            }
+
+            return true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            AchievementSystem.Instance.useGlobalDefaults = false;
+            AchievementSystem.Instance.userDefinedSettings = setting1;
+
             if (player1Turn)
             {
                 AchievementSystem.Instance.CompletedAchievement(player1, Achievements.PressedV);
@@ -73,7 +118,26 @@ public class GameManager : MonoBehaviour
             return true;
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            AchievementSystem.Instance.useGlobalDefaults = false;
+            AchievementSystem.Instance.userDefinedSettings = setting2;
+
+            if (player1Turn)
+            {
+                AchievementSystem.Instance.CompletedAchievement(player1, Achievements.PressedB);
+                player1Turn = !player1Turn;
+            }
+            else
+            {
+                AchievementSystem.Instance.CompletedAchievement(player2, Achievements.PressedB);
+                player1Turn = !player1Turn;
+            }
+
+            return true;
+        }
+
+
 
         return false;
     }

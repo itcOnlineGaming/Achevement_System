@@ -137,7 +137,7 @@ public class AchievementSystem : MonoBehaviour
             }
             else
             {
-                achievementTitle = "Achievement Unlocked\n" + t_achievementName;
+                achievementTitle = "Achievement Unlocked!\n" + t_achievementName;
             }
 
             Canvas canvas = GameObject.FindAnyObjectByType<Canvas>();

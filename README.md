@@ -5,11 +5,18 @@ Here you will see how to use the achievement system package
 ---
 
 ## Table of Contents
+1. [Set-Up](#set-up)
+2. [Pop-Up Visuals](#pop-up-visuals)
+3. [Profiles](#profiles)
+4. [Achievements](#achievements)
+5. [Alternative Achievement Pop Ups](#alternative-achievement-pop-ups)
 
-1. [Pop-Up Visuals](#pop-up-visuals)
-2. [Profiles](#profiles)
-3. [Achievements](#achievements)
-4. [Alternative Achievement Pop Ups](#alternative-achievement-pop-ups)
+---
+
+## Set Up
+You need to add this component to your Packages/manifest file
+
+    "ie.itcarlow.achievementsystem":"https://github.com/itcOnlineGaming/Achievement_System.git?path=/Achievement System/Packages/ie.itcarlow.achievementsystem"
 
 ---
 

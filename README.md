@@ -9,7 +9,8 @@ Here you will see how to use the achievement system package
 2. [Pop-Up Visuals](#pop-up-visuals)
 3. [Profiles](#profiles)
 4. [Achievements](#achievements)
-5. [Alternative Achievement Pop Ups](#alternative-achievement-pop-ups)
+5. [Saving](#saving)
+6. [Alternative Achievement Pop Ups](#alternative-achievement-pop-ups)
 
 ---
 
@@ -101,6 +102,16 @@ Achievements are tracked with strings, the string will also be the title of the 
 - this will also create a pop up in game, the settings for which are specified [Pop-Up Visuals](#pop-up-visuals)
 - if more than 1 achievement is called at once they will be staggered so they don't obscure each other.
 
+## Saving
+
+### Overview:
+The system can save all users data so the achievement isn't complete more than once, data is save for users between games
+
+### Use:
+1. **To save data at the end of the game simply call the below functiom, this will save each player profiles data to the username**
+ ```csharp
+      AchievementSystem.Instance.savePlayersAchievements();
+   ```
 
 ## Alternative Achievement Pop Ups
 

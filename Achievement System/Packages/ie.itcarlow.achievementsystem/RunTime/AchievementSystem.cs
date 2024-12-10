@@ -1,3 +1,4 @@
+using PlasticGui.PreferencesWindow;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,14 +66,16 @@ public class AchievementSystem : MonoBehaviour
         return playersProfiles.Count - 1;
     }
 
-    public void checkForExisitingData(int t,string achievement)
+    public bool isAchievementCompletedInSave(int playerIndex,string achievement)
     {
-        string possibleSavedDatatt = playersProfiles[t].userName + achievement;
+        string possibleSavedDatatt = playersProfiles[playerIndex].userName + achievement;
 
         if( PlayerPrefs.GetInt(possibleSavedDatatt) == 1 )
         {
-            Debug.Log(playersProfiles[t].userName + achievement);
+            Debug.Log(playersProfiles[playerIndex].userName + achievement);
         }
+
+        return PlayerPrefs.GetInt(possibleSavedDatatt) == 1;
     }
 
     public AchievementProfile getProfile( int t_playerIndex )
@@ -89,7 +92,11 @@ public class AchievementSystem : MonoBehaviour
         for(int i = 0; i < playersProfiles.Count; i++) 
         {
 
-            
+            if( isAchievementCompletedInSave( i, t_achievement) )
+            {
+                playersProfiles[i].completedAchievements.Add(t_achievement);
+            }
+
             // if it hasnt been competeted already
             if(!playersProfiles[i].completedAchievements.Contains(t_achievement))
             {

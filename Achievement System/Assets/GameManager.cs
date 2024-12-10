@@ -144,8 +144,4 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private void OnApplicationQuit()
-    {
-        AchievementSystem.Instance.savePlayersAchievements();
-    }
 }

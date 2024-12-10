@@ -277,7 +277,7 @@ public class AchievementSystem : MonoBehaviour
 
     }
 
-    public void savePlayersAchievements() 
+    private void savePlayersAchievements() 
     {
 
         for (int i = 0; i < playersProfiles.Count; i++)

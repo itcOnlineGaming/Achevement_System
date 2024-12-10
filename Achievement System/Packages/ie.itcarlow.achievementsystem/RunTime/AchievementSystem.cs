@@ -66,6 +66,14 @@ public class AchievementSystem : MonoBehaviour
         return playersProfiles.Count - 1;
     }
 
+    public void deleteProfiles()
+    {
+        for (int i = 0; i < playersProfiles.Count; i++)
+        {
+            playersProfiles.RemoveAt(i);
+        }
+    }
+
     public bool isAchievementCompletedInSave(int playerIndex,string achievement)
     {
         string possibleSavedDatatt = playersProfiles[playerIndex].userName + achievement;

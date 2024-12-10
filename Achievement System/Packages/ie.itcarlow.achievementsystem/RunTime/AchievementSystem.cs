@@ -120,7 +120,9 @@ public class AchievementSystem : MonoBehaviour
     /// <param name="t_achievement">Achievment</param>
     public void addCompletedAchievement(int t_playerIndex, string t_achievement)
     {
-        if (!playersProfiles[t_playerIndex].completedAchievements.Contains(t_achievement))
+
+        // has to be an achievement they havent done and be on their uncompleted list
+        if (!playersProfiles[t_playerIndex].completedAchievements.Contains(t_achievement) || playersProfiles[t_playerIndex].uncompletedAchievements.Contains(t_achievement))
         {
             playersProfiles[t_playerIndex].completedAchievements.Add(t_achievement);
         }
@@ -136,10 +138,13 @@ public class AchievementSystem : MonoBehaviour
         // if it hasnt been competeted already
         if (!playersProfiles[playerIndex].completedAchievements.Contains(t_achievement))
         {
+
+            
+
             playersProfiles[playerIndex].uncompletedAchievements.Remove(t_achievement);
             playersProfiles[playerIndex].completedAchievements.Add(t_achievement);
 
-
+            savePlayersAchievements();
 
             AchievementPopUpSetting currentForTHisAchievement;
 

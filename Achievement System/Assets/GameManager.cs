@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
         AchievementSystem.Instance.useGlobalDefaults = true;
 
         AchievementSystem.Instance.AddAchievementToProfiles(Achievements.PressedV);
+        AchievementSystem.Instance.AddAchievementToProfiles(Achievements.PressedB);
+        AchievementSystem.Instance.AddAchievementToProfiles(Achievements.PressedC);
 
     }
 
@@ -69,8 +71,8 @@ public class GameManager : MonoBehaviour
 
     void addPlayers()
     {
-        player1 = AchievementSystem.Instance.addProfile("Josh", true);
-        player2 = AchievementSystem.Instance.addProfile("Daire", false);
+        player1 = AchievementSystem.Instance.addProfile("Joe", true);
+        player2 = AchievementSystem.Instance.addProfile("john", false);
     }
 
     // Update is called once per frame

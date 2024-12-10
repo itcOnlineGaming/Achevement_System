@@ -105,8 +105,7 @@ Achievements are tracked with strings, the string will also be the title of the 
 ## Saving
 
 ### Overview:
-The system can save all users data so the achievement isn't complete more than once, data is save for users between games
-
+The system saves achievements evertime they are completed to the profile automaitically, but the below line will save all uncompleted and completed achievemetsachievements in case you want both saved at the end of the game. 
 ### Use:
 1. **To save data at the end of the game simply call the below functiom, this will save each player profiles data to the username**
  ```csharp

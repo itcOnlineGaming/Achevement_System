@@ -65,6 +65,16 @@ public class AchievementSystem : MonoBehaviour
         return playersProfiles.Count - 1;
     }
 
+    public void checkForExisitingData(int t,string achievement)
+    {
+        string possibleSavedDatatt = playersProfiles[t].userName + achievement;
+
+        if( PlayerPrefs.GetInt(possibleSavedDatatt) == 1 )
+        {
+            Debug.Log(playersProfiles[t].userName + achievement);
+        }
+    }
+
     public AchievementProfile getProfile( int t_playerIndex )
     {
         return playersProfiles[t_playerIndex];  
@@ -77,7 +87,9 @@ public class AchievementSystem : MonoBehaviour
     public void AddAchievementToProfiles(string t_achievement )
     {
         for(int i = 0; i < playersProfiles.Count; i++) 
-        { 
+        {
+
+            
             // if it hasnt been competeted already
             if(!playersProfiles[i].completedAchievements.Contains(t_achievement))
             {
@@ -243,5 +255,30 @@ public class AchievementSystem : MonoBehaviour
 
         CreateAchievementPopUp(t_playerIndex, t_achievemnt, currentForTHisAchievement);
 
+    }
+
+    public void savePlayersAchievements() 
+    {
+
+        for (int i = 0; i < playersProfiles.Count; i++)
+        {
+            for (int k = 0; k < playersProfiles[i].completedAchievements.Count; k++)
+            {
+                string dataSaved = playersProfiles[i].userName + playersProfiles[i].completedAchievements[k];
+
+                PlayerPrefs.SetInt(dataSaved, 1); // meaning true
+            }
+
+
+            ///saving uncompleted achievemts as false with the name of user and achievements
+            for (int j = 0; j < playersProfiles[i].uncompletedAchievements.Count; j++)
+            {
+                string dataSaved = playersProfiles[i].userName + playersProfiles[i].uncompletedAchievements[j];
+
+                PlayerPrefs.SetInt(dataSaved, 2); // meaning false as 0 is the return default value
+            }
+        }
+
+        PlayerPrefs.Save();
     }
 }
